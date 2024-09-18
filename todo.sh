@@ -6,6 +6,8 @@ FILENAME=$"todo_${DATE}.md"
 TEMPLATE="# TODO: (${DATE})
 [] Let the cat out of the bag"
 
-echo "$TEMPLATE" > "$FILENAME"
+if ! [ -f "$FILENAME" ]; then
+        echo "$TEMPLATE" > "$FILENAME"
+fi
 
 ${EDITOR} ${FILENAME}
