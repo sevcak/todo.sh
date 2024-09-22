@@ -31,7 +31,9 @@ get_config_value() {
 }
 
 DATE=$(date +"%Y-%m-%d")
-CONFIG_FILENAME="./todo.config"
+SCRIPT_DIR=$(dirname $(readlink -f "${BASH_SOURCE[0]}"))
+CONFIG_FILENAME="${SCRIPT_DIR}/todo.config"
+TODO_DIR="$SCRIPT_DIR"
 
 # Create config file if it doesn't exist
 if [ ! -f "$CONFIG_FILENAME" ]; then
